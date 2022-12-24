@@ -18,7 +18,7 @@
 
 ### Tutorial
 
-1. Unzip [zt-csgo-skinchanger-v1](https://github.com/zabbix-byte/csgo-skin-changer/releases/tag/v1)
+1. Unzip [zt-csgo-skinchanger-v1](https://github.com/zabbix-byte/csgo-skin-changer/releases/tag/v1) or install the `setup`
 2. Now open `cs-go-skin-changer.exe`
 3. Config the app just you like it, for skins fo in this page `https://csgostash.com/`
 
@@ -34,3 +34,11 @@
 5. To run the app is easy just press `"LOAD SKINS"` the app will keep freeze  until you turn it off with the botton F1
 
 ![](https://github.com/zabbix-byte/csgo-skin-changer/blob/main/preview_app.png)
+
+### Compile options
+
+- libs - [wxwidgets].
+- x86
+- v143
+- ISO c++ 14
+
