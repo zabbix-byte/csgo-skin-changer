@@ -40,5 +40,5 @@
 - libs - [wxwidgets].
 - x86
 - v143
-- ISO c++ 14
+- ISO C++ 14
 
