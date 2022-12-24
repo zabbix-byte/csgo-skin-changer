@@ -6,12 +6,12 @@
 [![Donate](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/zabbix-byte)
 [![Donate](https://img.shields.io/badge/C++-3776AB?style=for-the-badge&logo=c%2B%2B&logoColor=white)](https://www.python.org/)
 
-#### For enjor the skinchanger just download, run the cs-go-skin-changer.exe and press "LOAD SKINS" button, to stop the app just press F1 key
+#### For enjor the skinchanger just [download](https://github.com/zabbix-byte/csgo-skin-changer/releases/tag/v1), run the cs-go-skin-changer.exe and press "LOAD SKINS" button, to stop the app just press F1 key
 ![](https://github.com/zabbix-byte/csgo-skin-changer/blob/main/preview_full.png)
 
 ### Tutorial
 
-1. Unzip zt-csgo-skinchanger-v1
+1. Unzip [zt-csgo-skinchanger-v1](https://github.com/zabbix-byte/csgo-skin-changer/releases/tag/v1)
 2. Now open `cs-go-skin-changer.exe`
 3. Config the app just you like it, for skins fo in this page `https://csgostash.com/`
 
