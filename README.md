@@ -6,8 +6,15 @@
 [![Donate](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/zabbix-byte)
 [![Donate](https://img.shields.io/badge/C++-3776AB?style=for-the-badge&logo=c%2B%2B&logoColor=white)](https://www.python.org/)
 
-#### For enjor the skinchanger just [download](https://github.com/zabbix-byte/csgo-skin-changer/releases/tag/v1), run the cs-go-skin-changer.exe and press "LOAD SKINS" button, to stop the app just press F1 key
-![](https://github.com/zabbix-byte/csgo-skin-changer/blob/main/preview_full.png)
+<div align="center">
+
+<img height="150" width="150" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/gun.png">
+
+</div>
+
+#### For enjoy the skin changer just [download](https://github.com/zabbix-byte/csgo-skin-changer/releases/tag/v1), run the cs-go-skin-changer.exe and press "LOAD SKINS" button, to stop the app just press F1 key
+
+<img src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/preview_full.png">
 
 ### Tutorial
 
