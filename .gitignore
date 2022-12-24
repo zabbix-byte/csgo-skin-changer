@@ -33,5 +33,10 @@
 
 Debug
 cs-go-skin-changer/Debug
+cs-go-skin-changer/Release
+cs-go-skinchanger-setup/Debug
+cs-go-skin-changer/Release
 .vs
 Dependecies
+x64
+Release

@@ -5,7 +5,6 @@
 #include "process.h"
 #include <iostream>
 #include <sstream>
-#include <wx/artprov.h>
 
 using namespace std;
 
