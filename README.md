@@ -18,8 +18,8 @@
 
 ### Tutorial
 
-1. Unzip [zt-csgo-skinchanger-v1](https://github.com/zabbix-byte/csgo-skin-changer/releases/tag/v1) or install the `setup`
-2. Now open `cs-go-skin-changer.exe`
+1. install the `setup`
+2. Now open `cs-go-skin-changer.exe` on the desktop
 3. Config the app just you like it, for skins fo in this page `https://csgostash.com/`
 
 ![](https://github.com/zabbix-byte/csgo-skin-changer/blob/main/tuto3.png)
