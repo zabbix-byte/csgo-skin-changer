@@ -22,7 +22,7 @@
 
 4. To edit the skin of a concret weapon just go in the menu and select the category of the weapon and the model you want
 
-<img height="250" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/tuto_1.png"><img height="250" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/tuto_2.png">
+<img height="200" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/tuto_1.png"><img height="200" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/tuto_2.png">
 
 5. To run the app is easy just press `"LOAD SKINS"` the app will keep freeze until you turn it off with the botton F1
 
