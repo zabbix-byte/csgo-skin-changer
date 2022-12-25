@@ -18,7 +18,7 @@
 2. Now open `cs-go-skin-changer` on the desktop
 3. Config the app just you like it, for skins fo in this page `https://csgostash.com/`
 
-<img height="400" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/tuto3.png"><img height="250" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/preview_app.png">
+<img height="350" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/tuto3.png"><img height="200" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/preview_app.png">
 
 4. To edit the skin of a concret weapon just go in the menu and select the category of the weapon and the model you want
 
@@ -26,7 +26,7 @@
 
 5. To run the app is easy just press `"LOAD SKINS"` the app will keep freeze until you turn it off with the botton F1
 
-<img height="250" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/preview_app.png">
+<img height="200" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/preview_app.png">
 
 6. Force restart skins, if the skins dont load press `HOME` key.
 ### Compile options
@@ -38,5 +38,5 @@
 
 ### Preview 
 
-<img src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/preview_full.png">
+<img height="400" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/preview_full.png">
 
