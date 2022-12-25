@@ -1,4 +1,4 @@
-# ZT Skin Changer
+# ZT Skin Changer V1
 
 ![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fzabbix-byte%2csgo-skin-changer%2F&countColor=%23263759)
 [![Donate](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white
@@ -12,14 +12,10 @@
 
 </div>
 
-#### For enjoy the skin changer just [download](https://github.com/zabbix-byte/csgo-skin-changer/releases/tag/v1), run the cs-go-skin-changer.exe and press "LOAD SKINS" button, to stop the app just press F1 key
-
-<img src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/preview_full.png">
-
 ### Tutorial
 
-1. install the `setup`
-2. Now open `cs-go-skin-changer.exe` on the desktop
+1. install the `cs-go-skinchanger-setup.msi`
+2. Now open `cs-go-skin-changer` on the desktop
 3. Config the app just you like it, for skins fo in this page `https://csgostash.com/`
 
 ![](https://github.com/zabbix-byte/csgo-skin-changer/blob/main/tuto3.png)
@@ -31,7 +27,7 @@
 ![](https://github.com/zabbix-byte/csgo-skin-changer/blob/main/tuto_1.png)
 ![](https://github.com/zabbix-byte/csgo-skin-changer/blob/main/tuto_2.png)
 
-5. To run the app is easy just press `"LOAD SKINS"` the app will keep freeze  until you turn it off with the botton F1
+5. To run the app is easy just press `"LOAD SKINS"` the app will keep freeze until you turn it off with the botton F1
 
 ![](https://github.com/zabbix-byte/csgo-skin-changer/blob/main/preview_app.png)
 
@@ -41,4 +37,8 @@
 - x86
 - v143
 - ISO C++ 14
+
+### Preview 
+
+<img src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/preview_full.png">
 
