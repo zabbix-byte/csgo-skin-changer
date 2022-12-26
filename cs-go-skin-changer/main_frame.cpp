@@ -1637,6 +1637,11 @@ void csgo()
 	while (g_state != 6) {
 		this_thread::sleep_for(chrono::milliseconds(5000));
 		g_state = Memory::Read<int>(h_proc, e_ponter + 0x108);
+
+		if (need_to_stop == true)
+		{
+			break;
+		}
 	}
 
 	/*
