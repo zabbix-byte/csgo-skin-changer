@@ -7,7 +7,7 @@
 [![Donate](https://img.shields.io/badge/C++-3776AB?style=for-the-badge&logo=c%2B%2B&logoColor=white)](https://www.python.org/)
 
 <div align="center">
-<img height="150" width="150" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/gun.png">
+<img height="350" width="350" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/gun_new.png">
 </div>
 
 ### Tutorial
