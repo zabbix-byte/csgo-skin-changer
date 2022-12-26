@@ -1638,7 +1638,7 @@ void csgo()
 		this_thread::sleep_for(chrono::milliseconds(5000));
 		g_state = Memory::Read<int>(h_proc, e_ponter + 0x108);
 
-		if (need_to_stop == true)
+		if (need_to_stop == true || GetAsyncKeyState(VK_F1))
 		{
 			break;
 		}
