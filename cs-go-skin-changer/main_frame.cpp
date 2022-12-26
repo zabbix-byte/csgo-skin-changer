@@ -5,6 +5,11 @@
 #include "process.h"
 #include <iostream>
 #include <sstream>
+#include <thread>
+#include "registry.h"
+#include "atlstr.h"
+#include <chrono>
+
 
 using namespace std;
 
@@ -16,6 +21,8 @@ Code make by zabbix | zabbix@ztrunks.space
 struct  WeapSKIN weapskin;
 struct  AppConfig appconf;
 
+float cs_go_thread_running = false;
+float need_to_stop = false;
 
 #define item1 (wxID_HIGHEST + 1)
 
@@ -139,6 +146,11 @@ const char* get_model_string_by_id(int knifeID)
 	case ID_KNIFE_TALON:
 		return  "models/weapons/v_knife_widowmaker.mdl";
 		break;
+	case ID_STUDDED_BLOODHOUND_GLOVES:
+		return  "models/weapons/v_models/arms/glove_bloodhound/v_glove_bloodhound.mdl";
+		break;
+	case ID_CT_GLOVES:
+		return "models/weapons/v_models/arms/glove_handwrap_leathery/v_glove_handwrap_leathery.mdl";
 	default:
 		break;
 	}
@@ -460,7 +472,8 @@ enum IDs
 	UMP_MENU = 1232,
 	P90_MENU = 1233,
 	Bizon_MENU = 1234,
-	MP5_MENU = 1235
+	MP5_MENU = 1235,
+	HELP_MENU = 1236
 };
 
 
@@ -590,8 +603,11 @@ MainFrame::MainFrame(const wxString &title) : wxFrame(nullptr, wxID_ANY, title)
 	smgs_menu->Append(MP5_MENU, "MP5");
 	this->Bind(wxEVT_MENU, &MainFrame::on_pistol_menu_MP5, this, MP5_MENU);
 
-	app->Append(UPDATE_MENU, "Update - F1 to stop");
+	app->Append(UPDATE_MENU, "Start/Stop");
 	this->Bind(wxEVT_MENU, &MainFrame::on_load_button, this, UPDATE_MENU);
+
+	app->Append(HELP_MENU, "Help");
+	this->Bind(wxEVT_MENU, &MainFrame::help_menu, this, HELP_MENU);
 
 
 
@@ -610,7 +626,7 @@ MainFrame::MainFrame(const wxString &title) : wxFrame(nullptr, wxID_ANY, title)
 	STAK->Bind(wxEVT_CHECKBOX, &MainFrame::st_stk, this);
 
 	STAK->SetForegroundColour(wxColour(*wxWHITE));
-	wxButton* RUN = new wxButton(pistol_panel, wxID_ANY, "LOAD SKINS - PRESS F1 TO STOP", wxPoint(30, 90), wxSize(280, 50));
+	wxButton* RUN = new wxButton(pistol_panel, wxID_ANY, "Start/Stop", wxPoint(30, 90), wxSize(280, 50));
 	RUN->Bind(wxEVT_BUTTON, &MainFrame::on_load_button, this);
 
 
@@ -639,7 +655,6 @@ MainFrame::MainFrame(const wxString &title) : wxFrame(nullptr, wxID_ANY, title)
 	skin_text->SetValue(to_string(appconf.SkinValueKnife));
 	skin_text->Bind(wxEVT_TEXT, &MainFrame::on_change_knife_skin_value, this);
 	
-	
 	wxArrayString choises;
 	choises.Add("KNIFE");
 	choises.Add("KNIFE_T");
@@ -656,9 +671,6 @@ MainFrame::MainFrame(const wxString &title) : wxFrame(nullptr, wxID_ANY, title)
 	choises.Add("HUNTSMAN");
 	choises.Add("URSUS");
 	choises.Add("TALON");
-
-
-
 
 	wxChoice* choise = new wxChoice(pistol_panel, wxID_ANY, wxPoint(220, 60), wxSize(120, 20), choises);
 	choise->Select(get_skin_list_id_with_id(appconf.SkinKnife));
@@ -712,6 +724,37 @@ void MainFrame::on_change_knife_skin_value(wxCommandEvent& evt)
 	write_app_config();
 }
 
+
+
+/* HELP */
+HelpDialog::HelpDialog(wxWindow* parent, const wxString& value) : wxDialog(parent, wxID_ANY, value, wxPoint(-1, -1), wxSize(250, 180))
+{
+	wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
+	wxPanel* ne_p = new wxPanel(this);
+	ne_p->SetBackgroundColour(wxColour(*wxWHITE));
+	ne_p->Show(true);
+
+	wxStaticText* L_0 = new wxStaticText(ne_p, wxID_ANY, "Keys: ", wxPoint(10, 5), wxSize(60, 15));
+	L_0->SetForegroundColour(wxColour(*wxRED));
+	wxStaticText* L_1 = new wxStaticText(ne_p, wxID_ANY, "<F1>    STOP THE APP ", wxPoint(15, 25), wxSize(280, 15));
+	wxStaticText* L_2 = new wxStaticText(ne_p, wxID_ANY, "<HOME>  RELOAD SKINS ", wxPoint(15, 40), wxSize(280, 15));
+	
+	wxStaticText* L_3 = new wxStaticText(ne_p, wxID_ANY, "Contact: ", wxPoint(10, 65), wxSize(280, 15));
+	L_3->SetForegroundColour(wxColour(*wxRED));
+	wxStaticText* L_4 = new wxStaticText(ne_p, wxID_ANY, "Email:  zabbix@ztrunk.space ", wxPoint(15, 80), wxSize(280, 15));
+	wxStaticText* L_5 = new wxStaticText(ne_p, wxID_ANY, "GitHub: zabbix-byte ", wxPoint(15, 95), wxSize(280, 15));
+
+	wxStaticText* L_6 = new wxStaticText(ne_p, wxID_ANY, "Made by @zabbix-byte ", wxPoint(50, 120), wxSize(280, 15));
+	L_6->SetForegroundColour(wxColour(*wxRED));
+
+}
+
+void MainFrame::help_menu(wxCommandEvent& evt)
+{
+	HelpDialog* ne = new HelpDialog(this, "Help and info");
+	ne->Show(true);
+}
+/* END */
 
 /* UPS */
 UPSDialog::UPSDialog(wxWindow* parent, const wxString& value) : wxDialog(parent, wxID_ANY, value, wxPoint(-1, -1), wxSize(250, 100))
@@ -1540,14 +1583,28 @@ void MainFrame::on_pistol_menu_MP5(wxCommandEvent& evt)
 }
 /* END */
 
-void MainFrame::on_load_button(wxCommandEvent& evt)
+void csgo()
 {
-	wxLogStatus(" ZT | PRESS F1 TO STOP CHARGING THE SKINS");
+
 	uintptr_t cs_go_pid;
+
+	bool opening = false;
 
 	do
 	{
 		cs_go_pid = get_process_id(L"csgo.exe");
+
+		if (cs_go_pid == 0) {
+
+			if (opening == false)
+			{
+				wxLogStatus("ZT | Opening Counter - Strike Global Offensive");
+				opening = true;
+				system("start steam://run/730 || exit");
+				this_thread::sleep_for(chrono::milliseconds(1000));
+			}
+		}
+
 	} while (cs_go_pid == 0);
 
 	uintptr_t base_module = get_module_base_address(cs_go_pid, L"client.dll");
@@ -1576,6 +1633,23 @@ void MainFrame::on_load_button(wxCommandEvent& evt)
 	auto e_ponter = Memory::Read<DWORD>(h_proc, engine_m + dwbase_moduleState);
 	auto g_state = Memory::Read<int>(h_proc, e_ponter + 0x108);
 
+
+	while (g_state != 6) {
+		this_thread::sleep_for(chrono::milliseconds(5000));
+		g_state = Memory::Read<int>(h_proc, e_ponter + 0x108);
+	}
+
+	/*
+	Next steps -
+
+		1. Make this a thread (done)
+		2. player is_playing state (done)
+		3. Gloves
+		4. New LOGO
+		5. Automatic game opening (done)
+
+	*/
+
 	// 6 mean in game
 	while (g_state == 6)
 	{
@@ -1590,17 +1664,17 @@ void MainFrame::on_load_button(wxCommandEvent& evt)
 				DWORD weaponEntity = Memory::Read<DWORD>(h_proc, base_module + addr_entity_lit + (myWeapons - 1) * 0x10);
 				int accountID = Memory::Read<int>(h_proc, weaponEntity + m_OriginalOwnerXuidLow);
 
-				if (weaponEntity == 0) { continue;}
+				if (weaponEntity == 0) { continue; }
 
 				short weaponID = Memory::Read<short>(h_proc, weaponEntity + m_iItemDefinitionIndex);
 				if (last_weapon != weaponID) {
 					last_weapon = weaponID;
-					
-					
+
+
 				}
 
 				if (weaponID == 0) { continue; }
-				else if (weaponID == ID_DEAGLE){current_paint_kit_weap = weapskin.DEAGLE;}
+				else if (weaponID == ID_DEAGLE) { current_paint_kit_weap = weapskin.DEAGLE; }
 				else if (weaponID == ID_ELITE) { current_paint_kit_weap = weapskin.ELITE; }
 				else if (weaponID == ID_FIVESEVEN) { current_paint_kit_weap = weapskin.FIVESEVEN; }
 				else if (weaponID == ID_GLOCK) { current_paint_kit_weap = weapskin.GLOCK; }
@@ -1643,7 +1717,7 @@ void MainFrame::on_load_button(wxCommandEvent& evt)
 				}
 				else { continue; }
 				if (Memory::Read<int>(h_proc, weaponEntity + m_iItemIDHigh) != -1) {
-					Memory::Write<int>(h_proc, weaponEntity + m_iItemIDHigh, -1);
+Memory::Write<int>(h_proc, weaponEntity + m_iItemIDHigh, -1);
 				}
 
 				Memory::Write<int>(h_proc, weaponEntity + m_iAccountID, accountID);
@@ -1656,10 +1730,10 @@ void MainFrame::on_load_button(wxCommandEvent& evt)
 					Memory::Write<string>(h_proc, weaponEntity + m_szCustomName, weap_name);
 				}
 
-				if ( appconf.StatTrak == "1") { Memory::Write<int>(h_proc, weaponEntity + m_nFallbackStatTrak, appconf.StatTrakValue);}
+				if (appconf.StatTrak == "1") { Memory::Write<int>(h_proc, weaponEntity + m_nFallbackStatTrak, appconf.StatTrakValue); }
 			}
 
-			
+
 			if (isGetted == false) {
 
 				UINT ClientState = Memory::Read<UINT>(h_proc, engine_m + dwbase_moduleState);
@@ -1690,7 +1764,7 @@ void MainFrame::on_load_button(wxCommandEvent& evt)
 
 			if (weaponIndex == ID_KNIFE || weaponIndex == ID_KNIFE_T || weaponIndex == appconf.SkinKnife)
 			{
-				
+
 				DWORD knifeViewModel = Memory::Read<DWORD>(h_proc, local_player + m_hViewModel) & 0xfff;
 				knifeViewModel = Memory::Read<DWORD>(h_proc, base_module + addr_entity_lit + (knifeViewModel - 1) * 0x10);
 
@@ -1699,7 +1773,7 @@ void MainFrame::on_load_button(wxCommandEvent& evt)
 				Memory::Write<DWORD>(h_proc, knifeViewModel + m_nModelIndex, knifeIndex);
 			}
 		}
-		else 
+		else
 		{
 			isGetted = !isGetted;
 		}
@@ -1719,9 +1793,9 @@ void MainFrame::on_load_button(wxCommandEvent& evt)
 			Memory::Write<int>(h_proc, Memory::Read<DWORD>(h_proc, engine_m + dwbase_moduleState) + 0x174, -1);
 			Memory::Write<int>(h_proc, Memory::Read<DWORD>(h_proc, engine_m + dwbase_moduleState) + 0x174, -1);
 		}
-		
 
-		if (GetAsyncKeyState(VK_F1))
+
+		if (GetAsyncKeyState(VK_F1) || need_to_stop == true)
 		{
 			break;
 		}
@@ -1731,9 +1805,29 @@ void MainFrame::on_load_button(wxCommandEvent& evt)
 
 	if (g_state != 6)
 	{
-		wxLogStatus(" ZT | You are not in a match");
+		wxLogStatus(" ZT | Waiting to enter in a match");
 	}
 
 	CloseHandle(h_proc);
+}
+
+
+
+void MainFrame::on_load_button(wxCommandEvent& evt)
+{
+	wxLogStatus(" ZT | Press F1 to stop");
+
+	if (cs_go_thread_running == false)
+	{
+		need_to_stop = false;
+		cs_go_thread_running = true;
+		std::thread thread_obj(csgo);
+		thread_obj.detach();
+	}
+	else {
+		cs_go_thread_running = false;
+		need_to_stop = true;
+	}
+	
 }
 

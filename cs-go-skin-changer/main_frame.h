@@ -2,6 +2,9 @@
 #include <fstream>
 #include <string>
 #include "globals.h"
+wxDECLARE_EVENT(wxEVT_COMMAND_MYTHREAD_COMPLETED, wxThreadEvent);
+wxDECLARE_EVENT(wxEVT_COMMAND_MYTHREAD_UPDATE, wxThreadEvent);
+class MyFrame;
 
 /*
 Code make by zabbix | zabbix@ztrunks.space
@@ -53,9 +56,19 @@ private:
 	void on_pistol_menu_P90(wxCommandEvent& evt);
 	void on_pistol_menu_Bizon(wxCommandEvent& evt);
 	void on_pistol_menu_MP5(wxCommandEvent& evt);
+	void help_menu(wxCommandEvent& evt);
 	wxDECLARE_EVENT_TABLE();
 };
 
+
+class HelpDialog : public wxDialog
+{
+public:
+	HelpDialog(wxWindow* parent, const wxString& value);
+
+private:
+	void on_change(wxCommandEvent& evt);
+};
 
 class UPSDialog : public wxDialog
 {
@@ -65,8 +78,6 @@ public:
 private:
 	void on_change(wxCommandEvent& evt);
 };
-
-
 
 
 class DeagleDialog : public wxDialog
@@ -370,3 +381,4 @@ public:
 private:
 	void on_change(wxCommandEvent& evt);
 };
+

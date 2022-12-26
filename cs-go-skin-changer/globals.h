@@ -109,6 +109,9 @@ weapons ID
 #define ID_KNIFE_NAVAJA 520
 #define ID_KNIFE_STILETTO 522
 #define ID_KNIFE_TALON 523
+#define ID_STUDDED_BLOODHOUND_GLOVES 5027
+#define ID_T_GLOVES  5028
+#define ID_CT_GLOVES 5029
 /*
 weapons SKIN
 */

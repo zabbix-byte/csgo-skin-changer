@@ -146,6 +146,7 @@
     <ClInclude Include="globals.h" />
     <ClInclude Include="main_frame.h" />
     <ClInclude Include="process.h" />
+    <ClInclude Include="registry.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
