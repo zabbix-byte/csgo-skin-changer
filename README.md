@@ -32,5 +32,6 @@
 
 ### Preview 
 
+<div align="center">
 <img height="400" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/preview_full.png">
-
+</div>
