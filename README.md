@@ -7,7 +7,7 @@
 [![Donate](https://img.shields.io/badge/C++-3776AB?style=for-the-badge&logo=c%2B%2B&logoColor=white)](https://www.python.org/)
 
 <div align="center">
-<img height="150" width="150" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/gun.png">
+<img height="350" width="350" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/gun_new.png">
 </div>
 
 ### Tutorial
@@ -15,7 +15,10 @@
 1. install the `cs-go-skinchanger-setup.msi`.
 2. Now open `cs-go-skin-changer` on the desktop.
 3. If you want to edit your skins just go on `https://csgostash.com/` and edit the fields of the program with the ids.
-<img height="350" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/tuto3.png">
+
+<img height="350" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/tuto3.png"><img width="350" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/preview_app.png">
+
+
 4. Press `Start/Stop` and enjoy.
 
 ### Keys
