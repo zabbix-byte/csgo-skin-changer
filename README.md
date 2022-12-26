@@ -14,7 +14,7 @@
 
 1. install the `cs-go-skinchanger-setup.msi`.
 2. Now open `cs-go-skin-changer` on the desktop.
-3. If you want to edit your skins just go on `https://csgostash.com/` and edit the fields of the program with the ids.
+3. Te fields are the ID of the guns or knifes, if you need to see some ids `https://csgostash.com/`.
 
 <img height="350" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/tuto3.png"><img width="350" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/preview_app.png">
 
