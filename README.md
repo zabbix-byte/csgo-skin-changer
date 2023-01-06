@@ -10,6 +10,20 @@
 <img height="350" width="350" src="https://github.com/zabbix-byte/csgo-skin-changer/blob/main/gun_new.png">
 </div>
 
+
+<div align="center">
+
+  ```
+   ▄▄▄▄▄▄   ██   ███   ███   ▄█     ▄  
+▀   ▄▄▀   █ █  █  █  █  █  ██ ▀▄   █ 
+ ▄▀▀   ▄▀ █▄▄█ █ ▀ ▄ █ ▀ ▄ ██   █ ▀  
+ ▀▀▀▀▀▀   █  █ █  ▄▀ █  ▄▀ ▐█  ▄ █   
+             █ ███   ███    ▐ █   ▀▄ 
+            █                  ▀     
+           ▀                         
+  ```
+  </div>
+  
 ### Tutorial
 
 1. install the `cs-go-skinchanger-setup.msi`.
